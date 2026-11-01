@@ -50,3 +50,15 @@ not require waiting. Quick checks can be run with
 3. graph: causal graph from traces (NetworkX)
 4. llm: graph-constrained incident report
 5. eval: accuracy, MTTD, chain precision
+
+## Running the normalizer
+
+Normalize all incident runs and the optional baseline into timestamp-sorted
+JSONL files:
+
+```bash
+python ingest/normalizer.py --data data
+```
+
+Each run receives `normalized.jsonl` and `normalize_errors.log` beside its
+`logs/` directory. Run the checks with `python ingest/test_ingest.py`.

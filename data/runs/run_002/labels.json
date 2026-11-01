@@ -1,0 +1,25 @@
+{
+  "run_id": "run_002",
+  "seed": 43,
+  "root_service": "payment-service",
+  "fault_type": "latency_spike",
+  "fault_start": "2026-11-01T00:10:23.131Z",
+  "fault_end": "2026-11-01T00:15:23.131Z",
+  "propagation_chain": [
+    "payment-service",
+    "api-gateway"
+  ],
+  "true_onsets": {
+    "payment-service": "2026-11-01T00:10:23.131Z",
+    "api-gateway": "2026-11-01T00:10:35.093Z"
+  },
+  "affected_services": [
+    "payment-service",
+    "api-gateway"
+  ],
+  "unaffected_services": [
+    "user-service",
+    "auth-service",
+    "database-proxy"
+  ]
+}

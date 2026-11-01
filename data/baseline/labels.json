@@ -1,0 +1,18 @@
+{
+  "run_id": "baseline",
+  "seed": 46203,
+  "root_service": null,
+  "fault_type": null,
+  "fault_start": null,
+  "fault_end": null,
+  "propagation_chain": [],
+  "true_onsets": {},
+  "affected_services": [],
+  "unaffected_services": [
+    "api-gateway",
+    "user-service",
+    "payment-service",
+    "auth-service",
+    "database-proxy"
+  ]
+}

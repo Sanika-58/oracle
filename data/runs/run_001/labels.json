@@ -1,0 +1,29 @@
+{
+  "run_id": "run_001",
+  "seed": 42,
+  "root_service": "database-proxy",
+  "fault_type": "crash",
+  "fault_start": "2026-11-01T00:16:23.656Z",
+  "fault_end": "2026-11-01T00:21:23.656Z",
+  "propagation_chain": [
+    "database-proxy",
+    "auth-service",
+    "payment-service",
+    "api-gateway"
+  ],
+  "true_onsets": {
+    "database-proxy": "2026-11-01T00:16:23.656Z",
+    "auth-service": "2026-11-01T00:16:28.906Z",
+    "payment-service": "2026-11-01T00:16:36.656Z",
+    "api-gateway": "2026-11-01T00:16:43.888Z"
+  },
+  "affected_services": [
+    "database-proxy",
+    "auth-service",
+    "payment-service",
+    "api-gateway"
+  ],
+  "unaffected_services": [
+    "user-service"
+  ]
+}

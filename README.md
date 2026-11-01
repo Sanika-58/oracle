@@ -25,14 +25,24 @@ parsed_fields {latency_ms, status_code, dependency_called, error_type}
 latency spike, error burst, connection pool exhaustion, crash
 
 ## Fault injection
-Pick service + fault + start time T. Fault propagates upstream
-through the call chain. Ground truth saved to data/labels.json
-(root_service, fault_type, start_time).
+Pick a service and fault type at time T. The fault propagates upstream
+with a separate 5–15 second lag per hop. Ground truth is written alongside
+each run in `labels.json` with the true onset time for every affected service.
 
-## Outputs
-- data/logs/<service>.log
-- data/traces.json (Jaeger-like)
-- data/labels.json
+## Running the simulator
+
+Generate reproducible incident runs plus a one-hour fault-free baseline:
+
+```bash
+python simulator/run_sim.py --runs 20 --seed 42 --duration 1800 --out data
+```
+
+Each incident is written to `data/runs/run_001/` (and subsequent numbered
+folders), with per-service logs in `logs/`, Jaeger-like `traces.json`, and
+ground-truth `labels.json`. The baseline uses the same layout in
+`data/baseline/`. The simulator uses a virtual clock, so simulated time does
+not require waiting. Quick checks can be run with
+`python simulator/test_sim.py`.
 
 ## Pipeline
 1. ingest: normalize logs
